@@ -1,0 +1,14 @@
+=simple_form_for @assignment do |f|
+ %p Choose category
+ =f.collection_select :cat_note_id, CatNote.all, :id, :name, {promt: "Choose a resource"}
+
+ =f.input :course_code,placeholder:"Course_code"
+ =f.input :course_name,placeholder:"Course_name"
+ =f.input :semester,placeholder:"Semester"
+ =f.input :year_of_study,placeholder:"Year of study"
+ %p Choose semester dates:
+ %p=f.collection_select :sem_date_id, SemDate.all, :id, :date, {promt: "Choose the semester date"}
+ %p=f.file_field :attachment
+
+ %p=f.button :submit
+ %br

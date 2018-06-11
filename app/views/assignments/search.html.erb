@@ -1,0 +1,28 @@
+<table class="table table-bordered table-striped">
+<thead>
+
+<tr>
+<th><h3> Available Notes / Assignment</h3></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<% @assignments.each do |assignment| %>
+<td><%= link_to assignment.course_code,assignment %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+</br>
+<% if current_user == user_signed_in?%>
+<div class="links">
+  
+<%= link_to "New Assignment/Note",new_assignment_path,class:"btn btn-default" %>
+</div>
+<% end %>
+<br>
+
+
+<% if @assignments.blank? %>
+  <h4>There are no resource containing the term <%= params[:search] %>.</h4>
+<% end %>
